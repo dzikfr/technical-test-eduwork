@@ -7,4 +7,4 @@ router.get('/order', getAllOrder);
 router.get('/order/:id', getOrder);
 router.delete('/order/:id', deleteOrder);
 
-exports.module = router;
+module.exports = router
