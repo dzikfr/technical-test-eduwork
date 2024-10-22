@@ -38,6 +38,20 @@ const createCategory = async (req, res) => {
         }
 
         const category = await Category.create(newCategory);
+
+        //WRITEFILE
+        const {ct_id, ct_code, ct_name} = req.body;
+        const filePath = path.join(__dirname, '../assets/data/categories.json');
+
+        let categoriesData = [];
+        if (fs.existsSync(filePath)) {
+            const data = fs.readFileSync(filePath, 'utf8');
+            categoriesData = JSON.parse(data);
+        }
+        categoriesData.push({ ct_id, ct_code, ct_name });
+        fs.writeFileSync(filePath, JSON.stringify(categoriesData, null, 2), 'utf8');
+        //END WRITEFILE 
+
         return res.status(200).send({message: "category created", data: category})
     } catch (error) {
         return res.status(500).send({message: error.message})
