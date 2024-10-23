@@ -1,15 +1,10 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
 
 const Admin = () => {
   return (
     <div>
-      <div>
-        <ul>
-            <li>product</li>
-            <li>order</li>
-        </ul>
-      </div>
-      <div></div>
+      <Navbar/>
     </div>
   )
 }

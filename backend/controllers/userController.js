@@ -67,11 +67,11 @@ const updateUser = async(req, res) => {
         const updatedUser = await User.findByIdAndUpdate(
             req.params.id, 
             req.body, 
-            { new: true, runValidators: true } // Menjalankan validasi
+            { new: true, runValidators: true }
         );
 
         if (!updatedUser) {
-            return res.status(404).send({ message: "User not found" }); // Mengubah status menjadi 404
+            return res.status(404).send({ message: "User not found" });
         }
 
         //UPDATE DATA ON ASSETS.JSON
@@ -88,7 +88,7 @@ const updateUser = async(req, res) => {
         if (userIndex !== -1) {
             usersData[userIndex] = {
                 ...usersData[userIndex],
-                ...req.body, // Mengupdate hanya field yang ada di req.body
+                ...req.body,
             };
         }
 
@@ -127,7 +127,7 @@ const deleteUser = async (req, res) => {
 
         return res.status(200).send({ message: "User deleted successfully", data: deletedUser });
     } catch (error) {
-        console.error(error); // Log error ke console
+        console.error(error);
         return res.status(500).send({ message: error.message });
     }
 }
