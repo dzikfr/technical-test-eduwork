@@ -1,23 +1,23 @@
 [
   {
-    "pd_id": "4",
-    "pd_code": "pd4",
+    "pd_id": 1,
+    "pd_code": "pd1",
     "pd_ct_id": "6719c4a53110e37c3a070431",
-    "pd_name": "misro",
-    "pd_price": "1700"
+    "pd_name": "risol",
+    "pd_price": "3000"
+  },
+  {
+    "pd_id": "2",
+    "pd_code": "pd2",
+    "pd_ct_id": "671a0459f4ae5568cb0b1af8",
+    "pd_name": "es jeruk",
+    "pd_price": "10000"
   },
   {
     "pd_id": "3",
     "pd_code": "pd3",
     "pd_ct_id": "6719c4a53110e37c3a070431",
     "pd_name": "oncom",
-    "pd_price": "1500"
-  },
-  {
-    "pd_id": "2",
-    "pd_code": "pd2",
-    "pd_ct_id": "671a0459f4ae5568cb0b1af8",
-    "pd_name": "es kelapa",
-    "pd_price": "10000"
+    "pd_price": "15000"
   }
 ]

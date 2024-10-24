@@ -4,7 +4,6 @@ import axios from "axios";
 
 const ReadProduct = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -13,19 +12,13 @@ const ReadProduct = () => {
       try {
         const response = await axios.get("http://localhost:3000/api/product");
         setProducts(response.data.data);
-        setLoading(false);
       } catch (err) {
         setError(err.message);
-        setLoading(false);
       }
     };
 
     fetchProducts();
   }, []);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
 
   if (error) {
     return <p>Error: {error}</p>;
@@ -36,12 +29,17 @@ const ReadProduct = () => {
   };
 
   const handleDelete = async (id) => {
-    if (window.confirm("ingin menghapus produk?")) {
+    if (window.confirm("Ingin menghapus produk?")) {
       try {
-        await fetch(`http://localhost:3000/api/product/${id}`, {
-          method: "DELETE",
-        });
-        setProducts(products.filter((product) => product.pd_id !== id));
+        const response = await axios.delete(
+          `http://localhost:3000/api/product/${id}`
+        );
+
+        if (response.status === 200) {
+          window.location.reload();
+        } else {
+          console.error("Gagal menghapus produk.");
+        }
       } catch (error) {
         console.error(error);
       }
@@ -51,9 +49,11 @@ const ReadProduct = () => {
   return (
     <div className="mx-10">
       <h1 className="text-3xl font-bold text-center mb-6 pt-3">Product</h1>
-      <Link to={"/admin/product/create"} className="btn">Add +</Link>
+      <Link to={"/admin/product/create"} className="btn">
+        Add +
+      </Link>
       <div className="overflow-x-auto">
-        <table className="table table-zebra rounded-none border-black-200">
+        <table className="table table-zebra rounded-none border-black-200 bg-gray-800">
           <thead className="text-center">
             <tr>
               <th>ID</th>

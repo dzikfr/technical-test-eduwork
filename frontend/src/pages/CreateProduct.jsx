@@ -58,7 +58,7 @@ const CreateProduct = () => {
     <div className="justify-center items-center flex">
       <form
         onSubmit={handleSubmit}
-        className="rounded-none mt-20 p-6 w-80 justify-center items-center"
+        className="rounded-none mt-20 p-6 w-80 justify-center items-center bg-gray-800"
       >
         <h2 className="text-xl font-bold mb-4 text-center">Add Product</h2>
         <div className="form-control mb-4">
@@ -68,7 +68,7 @@ const CreateProduct = () => {
             name="pd_id"
             value={formData.pd_id}
             onChange={handleChange}
-            className="p-1"
+            className="input input-bordered"
             required
           />
         </div>
@@ -80,7 +80,7 @@ const CreateProduct = () => {
             name="pd_code"
             value={formData.pd_code}
             onChange={handleChange}
-            className="p-1"
+            className="input input-bordered"
             required
           />
         </div>
@@ -91,7 +91,7 @@ const CreateProduct = () => {
             name="pd_ct_id"
             value={formData.pd_ct_id}
             onChange={handleChange}
-            className="p-1"
+            className="input input-bordered"
             required
           >
             <option value="">Pilih Kategori</option>
@@ -109,8 +109,8 @@ const CreateProduct = () => {
             type="text"
             name="pd_name"
             value={formData.pd_name}
-            className="p-1"
             onChange={handleChange}
+            className="input input-bordered"
             required
 
           />
@@ -121,9 +121,9 @@ const CreateProduct = () => {
           <input
             type="number"
             name="pd_price"
-            className="p-1"
             value={formData.pd_price}
             onChange={handleChange}
+            className="input input-bordered"
             required
           />
         </div>

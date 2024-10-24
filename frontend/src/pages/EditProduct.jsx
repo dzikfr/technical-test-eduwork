@@ -65,7 +65,7 @@ const EditProduct = () => {
     <div className="justify-center items-center flex">
       <form
         onSubmit={handleSubmit}
-        className="rounded-none mt-20 p-6 w-80 justify-center items-center"
+        className="rounded-none mt-20 p-6 w-80 justify-center items-center bg-gray-800"
       >
         <h2  className="text-xl font-bold mb-4 text-center">Edit Product</h2>
         <div className="form-control mb-4">
@@ -74,7 +74,7 @@ const EditProduct = () => {
             type="text"
             value={pdid}
             onChange={(e) => setPdid(e.target.value)}
-            className="p-1"
+            className="input input-bordered"
             required
           />
         </div>
@@ -84,7 +84,7 @@ const EditProduct = () => {
             type="text"
             value={code}
             onChange={(e) => setCode(e.target.value)}
-            className="p-1"
+            className="input input-bordered"
             required
           />
         </div>
@@ -93,7 +93,7 @@ const EditProduct = () => {
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="p-1"
+            className="input input-bordered"
             required
           >
             <option value="">Pilih Kategori</option>
@@ -110,7 +110,7 @@ const EditProduct = () => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="p-1"
+            className="input input-bordered"
             required
           />
         </div>
@@ -120,7 +120,7 @@ const EditProduct = () => {
             type="number"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            className="p-1"
+            className="input input-bordered"
             required
           />
         </div>

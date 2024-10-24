@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
   const [ad_username, setUsername] = useState("");
@@ -11,27 +12,23 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ad_username,
-          ad_password,
-        }),
+      const response = await axios.post("http://localhost:3000/auth/login", {
+        ad_username,
+        ad_password,
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
+      if (response.status === 200) {
         setMessage("Login berhasil");
         navigate("/admin");
       } else {
-        setMessage(data.message);
+        setMessage(response.data.message);
       }
     } catch (error) {
-      setMessage("Terjadi kesalahan pada server");
+      if (error.response && error.response.data) {
+        setMessage(error.response.data.message);
+      } else {
+        setMessage("Terjadi kesalahan pada server");
+      }
     }
   };
 
@@ -46,6 +43,7 @@ const Login = () => {
             a id nisi.
           </p>
         </div>
+
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <form className="card-body" onSubmit={handleLogin}>
             <div className="form-control">
@@ -58,9 +56,11 @@ const Login = () => {
                 value={ad_username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Masukkan username"
+                className="input input-bordered"
                 required
               />
             </div>
+
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Password</span>
@@ -71,9 +71,11 @@ const Login = () => {
                 value={ad_password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Masukkan password"
+                className="input input-bordered"
                 required
               />
             </div>
+
             <div className="form-control mt-6">
               <button className="btn btn-primary" type="submit">
                 Login
