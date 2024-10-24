@@ -9,6 +9,7 @@ import CreateOrder from './pages/CreateOrder';
 import CreateCategory from './pages/CreateCategory';
 import ReadProduct from './pages/ReadProduct';
 import EditProduct from './pages/EditProduct';
+import './App.css';
 
 const App = () => {
   return (

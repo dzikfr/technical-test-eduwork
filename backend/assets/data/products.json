@@ -5,5 +5,12 @@
     "pd_ct_id": "6719c4a53110e37c3a070431",
     "pd_name": "risol",
     "pd_price": "4000"
+  },
+  {
+    "pd_id": "3",
+    "pd_code": "pd3",
+    "pd_ct_id": "6719c4a53110e37c3a070431",
+    "pd_name": "oncom",
+    "pd_price": "1500"
   }
 ]

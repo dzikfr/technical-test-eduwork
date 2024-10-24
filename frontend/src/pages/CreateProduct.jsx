@@ -55,37 +55,43 @@ const CreateProduct = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Form Produk</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className="justify-center items-center flex">
+      <form
+        onSubmit={handleSubmit}
+        className="rounded-none mt-20 p-6 w-80 justify-center items-center"
+      >
+        <h2 className="text-xl font-bold mb-4 text-center">Add Product</h2>
+        <div className="form-control mb-4">
           <label>ID Produk:</label>
           <input
             type="number"
             name="pd_id"
             value={formData.pd_id}
             onChange={handleChange}
+            className="p-1"
             required
           />
         </div>
 
-        <div>
+        <div className="form-control mb-4">
           <label>Kode Produk:</label>
           <input
             type="text"
             name="pd_code"
             value={formData.pd_code}
             onChange={handleChange}
+            className="p-1"
             required
           />
         </div>
 
-        <div>
+        <div className="form-control mb-4">
           <label>Kategori Produk:</label>
           <select
             name="pd_ct_id"
             value={formData.pd_ct_id}
             onChange={handleChange}
+            className="p-1"
             required
           >
             <option value="">Pilih Kategori</option>
@@ -97,29 +103,32 @@ const CreateProduct = () => {
           </select>
         </div>
 
-        <div>
+        <div className="form-control mb-4">
           <label>Nama Produk:</label>
           <input
             type="text"
             name="pd_name"
             value={formData.pd_name}
+            className="p-1"
             onChange={handleChange}
             required
+
           />
         </div>
 
-        <div>
+        <div className="form-control mb-4">
           <label>Harga Produk:</label>
           <input
             type="number"
             name="pd_price"
+            className="p-1"
             value={formData.pd_price}
             onChange={handleChange}
             required
           />
         </div>
 
-        <button type="submit">Simpan Produk</button>
+        <button type="submit" className="btn">Simpan Produk</button>
       </form>
     </div>
   );
