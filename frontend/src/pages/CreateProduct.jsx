@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const CreateProduct = () => {
@@ -10,6 +10,7 @@ const CreateProduct = () => {
     pd_price: "",
   });
 
+  const [categories, setCategories] = useState([]);
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -39,6 +40,20 @@ const CreateProduct = () => {
     }
   };
 
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/category");
+        const data = await response.json();
+        setCategories(data.data);
+      } catch (error) {
+        console.error("Failed to fetch categories:", error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
   return (
     <div>
       <h2>Form Produk</h2>
@@ -66,14 +81,20 @@ const CreateProduct = () => {
         </div>
 
         <div>
-          <label>ID Kategori Produk:</label>
-          <input
-            type="number"
+          <label>Kategori Produk:</label>
+          <select
             name="pd_ct_id"
             value={formData.pd_ct_id}
             onChange={handleChange}
             required
-          />
+          >
+            <option value="">Pilih Kategori</option>
+            {categories.map((category) => (
+              <option key={category._id} value={category._id}>
+                {category.ct_name}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div>

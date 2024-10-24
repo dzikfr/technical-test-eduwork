@@ -1,9 +1,9 @@
 [
   {
-    "pd_id": 1,
+    "pd_id": "1",
     "pd_code": "pd1",
     "pd_ct_id": "6719c4a53110e37c3a070431",
-    "pd_name": "seblak",
-    "pd_price": 5000
+    "pd_name": "risol",
+    "pd_price": "4000"
   }
 ]
