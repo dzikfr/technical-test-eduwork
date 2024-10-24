@@ -3,5 +3,10 @@
     "ct_id": 1,
     "ct_code": "code1",
     "ct_name": "makanan"
+  },
+  {
+    "ct_id": 2,
+    "ct_code": "code2",
+    "ct_name": "minuman"
   }
 ]
