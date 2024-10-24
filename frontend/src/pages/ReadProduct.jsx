@@ -8,7 +8,7 @@ const ReadProduct = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const getProducts = async () => {
       try {
         const response = await axios.get("http://localhost:3000/api/product");
         setProducts(response.data.data);
@@ -17,7 +17,7 @@ const ReadProduct = () => {
       }
     };
 
-    fetchProducts();
+    getProducts();
   }, []);
 
   if (error) {

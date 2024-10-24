@@ -36,43 +36,49 @@ const CreateCategory = () => {
   };
 
   return (
-    <div>
-      <h2>Form Category</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className="justify-center items-center flex">
+      <form
+        onSubmit={handleSubmit}
+        className="rounded-none mt-20 p-6 w-80 justify-center items-center bg-gray-800"
+      >
+        <h2 className="text-xl font-bold mb-4 text-center">Add Category</h2>
+        <div className="form-control mb-4">
           <label>ID Category:</label>
           <input
             type="number"
             name="ct_id"
             value={formData.ct_id}
             onChange={handleChange}
+            className="input input-bordered"
             required
           />
         </div>
 
-        <div>
+        <div className="form-control mb-4">
           <label>Code Category:</label>
           <input
             type="text"
             name="ct_code"
             value={formData.ct_code}
             onChange={handleChange}
+            className="input input-bordered"
             required
           />
         </div>
 
-        <div>
+        <div className="form-control mb-4">
           <label>Name Category:</label>
           <input
             type="text"
             name="ct_name"
             value={formData.ct_name}
             onChange={handleChange}
+            className="input input-bordered"
             required
           />
         </div>
 
-        <button type="submit">Simpan Order</button>
+        <button type="submit" className="btn">Simpan Order</button>
       </form>
     </div>
   );

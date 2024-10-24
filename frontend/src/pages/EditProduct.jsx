@@ -8,12 +8,11 @@ const EditProduct = () => {
   const [category, setCategory] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
-  const [categories, setCategories] = useState([]); // Untuk menyimpan daftar kategori
+  const [categories, setCategories] = useState([]);
 
   const navigate = useNavigate();
-  const { id } = useParams(); // Mengambil id dari parameter URL
+  const { id } = useParams();
 
-  // Fetch detail produk
   useEffect(() => {
     axios
       .get(`http://localhost:3000/api/product/${id}`)
@@ -21,7 +20,7 @@ const EditProduct = () => {
         const product = response.data.data;
         setPdid(product.pd_id);
         setCode(product.pd_code);
-        setCategory(product.pd_ct_id._id); // Set category ke ObjectId
+        setCategory(product.pd_ct_id._id);
         setName(product.pd_name);
         setPrice(product.pd_price);
       })
@@ -29,7 +28,6 @@ const EditProduct = () => {
         console.log(error);
       });
 
-    // Fetch categories untuk dropdown
     axios
       .get("http://localhost:3000/api/category")
       .then((response) => {
@@ -40,13 +38,12 @@ const EditProduct = () => {
       });
   }, [id]);
 
-  // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
     const updatedProduct = {
       pd_id: pdid,
       pd_code: code,
-      pd_ct_id: category, // Kirim category sebagai ObjectId
+      pd_ct_id: category,
       pd_name: name,
       pd_price: price,
     };
@@ -54,7 +51,7 @@ const EditProduct = () => {
     axios
       .put(`http://localhost:3000/api/product/${id}`, updatedProduct)
       .then(() => {
-        navigate("/admin/product"); // Redirect ke halaman produk setelah berhasil edit
+        navigate("/admin/product");
       })
       .catch((error) => {
         console.log(error);
@@ -124,7 +121,7 @@ const EditProduct = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-control mb-4">
           <button type="submit" className="btn">Simpan</button>
         </div>
       </form>

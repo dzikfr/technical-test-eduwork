@@ -8,5 +8,20 @@
     "ct_id": 2,
     "ct_code": "code2",
     "ct_name": "minuman"
+  },
+  {
+    "ct_id": "3",
+    "ct_code": "code3",
+    "ct_name": "Mainan"
+  },
+  {
+    "ct_id": "3",
+    "ct_code": "code3",
+    "ct_name": "mainan"
+  },
+  {
+    "ct_id": "3",
+    "ct_code": "code3",
+    "ct_name": "mainan"
   }
 ]

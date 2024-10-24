@@ -69,9 +69,29 @@ const deleteCategory = async (req, res) => {
     }
 };
 
+const updateCategory = async (req, res) => {
+    try {
+        const updatedCategory = await Category.findByIdAndUpdate(
+            req.params.id, 
+            req.body, 
+            { new: true, runValidators: true }
+        );
+
+        if (!updatedCategory) {
+            return res.status(404).send({ message: "Category not found" });
+        }
+
+        return res.status(200).send({ message: "Category updated successfully", data: updatedCategory });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send({ message: error.message });
+    }
+}
+
 module.exports = {
     getAllCategory,
     getCategory,
     createCategory,
-    deleteCategory
+    deleteCategory,
+    updateCategory
 }

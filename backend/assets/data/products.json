@@ -4,7 +4,7 @@
     "pd_code": "pd1",
     "pd_ct_id": "6719c4a53110e37c3a070431",
     "pd_name": "risol",
-    "pd_price": "3000"
+    "pd_price": 3000
   },
   {
     "pd_id": "2",
@@ -18,6 +18,13 @@
     "pd_code": "pd3",
     "pd_ct_id": "6719c4a53110e37c3a070431",
     "pd_name": "oncom",
+    "pd_price": "15000"
+  },
+  {
+    "pd_id": "4",
+    "pd_code": "pd4",
+    "pd_ct_id": "671a2fa8296dd4eb422a012e",
+    "pd_name": "congklak",
     "pd_price": "15000"
   }
 ]
