@@ -1,4 +1,6 @@
 const Category = require('../models/categoryModel.js');
+const fs = require('fs');
+const path = require('path');
 
 const getAllCategory = async (req, res) => {
     try {

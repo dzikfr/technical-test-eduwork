@@ -1,4 +1,5 @@
 const Product = require('../models/productModel.js');
+const Category = require('../models/categoryModel.js')
 const fs = require('fs');
 const path = require('path');
 
@@ -21,7 +22,7 @@ const createProduct = async (req, res) =>{
         pd_price: req.body.pd_price,
     }
 
-    const products = await Product.create(newProduct);
+    const products = await Product.create(newProduct)
 
     //WRITEFILE
     const {pd_id, pd_code, pd_ct_id, pd_name, pd_price} = req.body;
@@ -41,7 +42,7 @@ const createProduct = async (req, res) =>{
 
 const getAllProduct = async (req, res) => {
     try {
-        const products = await Product.find();
+        const products = await Product.find().populate('pd_ct_id');
         return res.status(200).send({message: "get data products", data: products})
     } catch (error) {
         return res.status(500).send({message: error.message})
@@ -50,7 +51,7 @@ const getAllProduct = async (req, res) => {
 
 const getProduct = async (req, res) => {
     try {
-        const product = await Product.findById(req.params.id);
+        const product = await Product.findById(req.params.id).populate('pd_ct_id');
         if(!product){
             return res.status(400).send({message: "product not found"})
         }
