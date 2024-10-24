@@ -7,7 +7,8 @@ const orderSchema = new mongoose.Schema({
     },
 
     or_pd_id:{
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Product",
         required: true,
     },
 

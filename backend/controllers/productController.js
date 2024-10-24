@@ -123,7 +123,7 @@ const deleteProduct = async (req, res) => {
         //END DELETE DATA ON ASSETS.JSON
 
 
-        return res.status(200).send({ message: "Product deleted successfully", data: deletedUser });
+        return res.status(200).send({ message: "Product deleted successfully", data: deletedProduct });
     } catch (error) {
         console.error(error);
         return res.status(500).send({ message: error.message });

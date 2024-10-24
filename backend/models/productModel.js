@@ -12,7 +12,8 @@ const productSchema = new mongoose.Schema({
     },
 
     pd_ct_id:{
-        type: Number,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Category",
         required: true,
     },
 
