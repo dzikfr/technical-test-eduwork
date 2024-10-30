@@ -22,7 +22,7 @@ app.use('/api', userRoutes);
 app.use('/api', productRoutes);
 app.use('/api', orderRoutes);
 app.use('/api', categoryRoutes);
-app.use('/auth', authRoutes);
+app.use('/auth/admin', authRoutes);
 app.use('/auth', userAuthRoutes);
 
 app.listen(process.env.PORT, () => console.log(`Server berjalan pada port ${process.env.PORT}`));
