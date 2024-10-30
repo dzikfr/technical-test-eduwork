@@ -26,5 +26,12 @@
     "pd_ct_id": "671a2fa8296dd4eb422a012e",
     "pd_name": "congklak",
     "pd_price": "15000"
+  },
+  {
+    "pd_id": "3",
+    "pd_code": "pd3",
+    "pd_ct_id": "672220e956ed503b2be23c99",
+    "pd_name": "papan catur",
+    "pd_price": "20000"
   }
 ]
