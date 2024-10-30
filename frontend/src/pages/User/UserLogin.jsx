@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import LoginForm from "../../components/LoginForm";
@@ -34,6 +34,17 @@ const UserLogin = () => {
     }
   };
 
+  useEffect(() => {
+    if (message === "User tidak ditemukan") {
+      const confirmRegister = window.confirm(
+        "User tidak ditemukan. Ingin daftar?"
+      );
+      if (confirmRegister) {
+        navigate("/register");
+      }
+    }
+  }, [message]);
+
   return (
     <div>
       <LoginForm
@@ -45,6 +56,7 @@ const UserLogin = () => {
         setUsername={setUsername}
         setPassword={setPassword}
         message={message}
+        role="USER"
       />
     </div>
   );

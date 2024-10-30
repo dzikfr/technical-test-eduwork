@@ -41,7 +41,6 @@ const UserRegister = () => {
 
   return (
     <div>
-      <h2>Register User:</h2>
       {message && <p>{message}</p>}
       <RegisterForm
         initialUsername={us_name}

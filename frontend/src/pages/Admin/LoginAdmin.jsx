@@ -36,7 +36,6 @@ const LoginAdmin = () => {
 
   return (
     <div>
-      <h2>Login untuk Admin:</h2>
       <LoginForm
         initialUsername={ad_username}
         initialPassword={ad_password}
@@ -46,6 +45,7 @@ const LoginAdmin = () => {
         setUsername={setUsername}
         setPassword={setPassword}
         message={message}
+        role="ADMIN"
       />
     </div>
   );

@@ -4,6 +4,7 @@ const LoginForm = ({
   initialUsername = "",
   initialPassword = "",
   onSubmit,
+  role,
   setUsername,
   setPassword,
   message,
@@ -30,7 +31,7 @@ const LoginForm = ({
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <h2 className="text-white card-title justify-center font-bold mt-5">LOGIN</h2>
+          <h2 className="text-white card-title justify-center font-bold mt-5">LOGIN {role}</h2>
           <form className="card-body" onSubmit={handleLogin}>
             <div className="form-control">
               <label className="label">
