@@ -5,7 +5,7 @@ const path = require('path');
 
 const getAllOrder = async (req, res) => {
     try {
-        const orders = await Order.find().populate('or_pd_id');
+        const orders = await Order.find().populate('or_pd_id').populate('or_us_id');
         return res.status(200).send({message: "get data orders", data: orders})
     } catch (error) {
         return res.status(500).send({message: error.message})
@@ -14,7 +14,7 @@ const getAllOrder = async (req, res) => {
 
 const getOrder = async (req, res) => {
     try {
-        const order = await Order.findById(req.params.id).populate('or_pd_id')
+        const order = await Order.findById(req.params.id).populate('or_pd_id').populate('or_us_id')
         if(!order){
             return res.status(400).send({message: "order not found"})
         }
@@ -29,6 +29,7 @@ const createOrder = async (req, res) => {
         if(
             !req.body.or_id ||
             !req.body.or_pd_id ||
+            !req.body.or_us_id ||
             !req.body.or_amount
         ){
             return res.status(400).send({message: 'required field missing'})
@@ -37,10 +38,11 @@ const createOrder = async (req, res) => {
         const newOrder ={
             or_id : req.body.or_id,
             or_pd_id : req.body.or_pd_id,
+            or_us_id : req.body.or_us_id,
             or_amount : req.body.or_amount
         }
 
-        const order = (await Order.create(newOrder)).populate('or_pd_id');
+        const order = (await Order.create(newOrder)).populate('or_pd_id').populate('or_us_id');
 
         //WRITEFILE
         const {or_id, or_pd_id, or_amount} = req.body;

@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "us_id": 1,
+    "us_name": "us1",
+    "us_password": "pwus1",
+    "us_email": "emailus1",
+    "us_phone_number": "phone1",
+    "us_address": "address1"
+  },
+  {
+    "us_id": "2",
+    "us_name": "us2",
+    "us_password": "pwus2",
+    "us_email": "emailus2",
+    "us_phone_number": "phone2",
+    "us_address": "address2"
+  }
+]

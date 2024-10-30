@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     us_id:{
         type: Number,
-        required: true,
+        AutoIncrement: true,
     },
 
     us_name:{

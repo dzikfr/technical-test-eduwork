@@ -132,10 +132,33 @@ const deleteUser = async (req, res) => {
     }
 }
 
+const loginUser = async (req, res) => {
+    try {
+        const user = await User.findOne({ us_name: req.body.us_name, us_password: req.body.us_password });
+        if (!user) {
+            return res.status(404).send({ message: "User tidak ditemukan" });
+        }
+        return res.status(200).send({ message: "ok", data: user });
+    } catch (error) {
+        return res.status(500).send({ message: error.message });
+    }
+}
+
+const registerUser = async (req, res) => {
+    try {
+        const user = await User.create(req.body);
+        return res.status(200).send({ message: "ok", data: user });
+    } catch (error) {
+        return res.status(500).send({ message: error.message });
+    }
+}
+
 module.exports = {
     createUser,
     getAllUser,
     getUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    loginUser,
+    registerUser
 };

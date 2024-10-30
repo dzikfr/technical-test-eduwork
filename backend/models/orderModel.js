@@ -12,6 +12,12 @@ const orderSchema = new mongoose.Schema({
         required: true,
     },
 
+    or_us_id:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true,
+    },
+
     or_amount:{
         type: Number,
         required: true,
