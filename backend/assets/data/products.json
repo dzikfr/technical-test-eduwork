@@ -33,5 +33,12 @@
     "pd_ct_id": "672220e956ed503b2be23c99",
     "pd_name": "papan catur",
     "pd_price": "20000"
+  },
+  {
+    "pd_id": "3",
+    "pd_code": "pd3",
+    "pd_ct_id": "672225eecd4316d97ede0248",
+    "pd_name": "Figure amiya",
+    "pd_price": "1300000"
   }
 ]

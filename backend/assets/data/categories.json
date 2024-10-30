@@ -38,5 +38,10 @@
     "ct_id": "4",
     "ct_code": "code4",
     "ct_name": "alat masak"
+  },
+  {
+    "ct_id": "5",
+    "ct_code": "code5",
+    "ct_name": "figure"
   }
 ]

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import CreateForm from "../../components/CreateForm";
 
 const CreateProduct = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ const CreateProduct = () => {
   });
 
   const [categories, setCategories] = useState([]);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -23,10 +25,16 @@ const CreateProduct = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/product",
+        `${import.meta.env.VITE_BACKEND_PORT}/api/product`,
         formData
       );
-      console.log("Data berhasil dikirim:", response.data);
+
+      if (response.status === 200) {
+        alert("Data produk berhasil ditambahkan");
+        console.log("Data berhasil dikirim:", response.data);
+      } else {
+        console.error("Gagal menambahkan data produk:", response.data);
+      }
 
       setFormData({
         pd_id: "",
@@ -43,93 +51,41 @@ const CreateProduct = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/category");
-        const data = await response.json();
-        setCategories(data.data);
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_PORT}/api/category`);
+        setCategories(response.data.data);
       } catch (error) {
-        console.error("Failed to fetch categories:", error);
+        console.error("Gagal mengambil data kategori:", error);
       }
     };
 
     fetchCategories();
   }, []);
 
+  const fields = [
+    { label: "ID Produk", name: "pd_id", type: "number", required: true },
+    { label: "Kode Produk", name: "pd_code", type: "text", required: true },
+    {
+      label: "Kategori Produk",
+      name: "pd_ct_id",
+      type: "select",
+      required: true,
+      options: categories.map((category) => ({
+        value: category._id,
+        label: category.ct_name,
+      })),
+    },
+    { label: "Nama Produk", name: "pd_name", type: "text", required: true },
+    { label: "Harga Produk", name: "pd_price", type: "number", required: true },
+  ];
+
   return (
     <div className="justify-center items-center flex">
-      <form
-        onSubmit={handleSubmit}
-        className="rounded-none mt-20 p-6 w-80 justify-center items-center bg-gray-800"
-      >
-        <h2 className="text-xl font-bold mb-4 text-center">Add Product</h2>
-        <div className="form-control mb-4">
-          <label>ID Produk:</label>
-          <input
-            type="number"
-            name="pd_id"
-            value={formData.pd_id}
-            onChange={handleChange}
-            className="input input-bordered"
-            required
-          />
-        </div>
-
-        <div className="form-control mb-4">
-          <label>Kode Produk:</label>
-          <input
-            type="text"
-            name="pd_code"
-            value={formData.pd_code}
-            onChange={handleChange}
-            className="input input-bordered"
-            required
-          />
-        </div>
-
-        <div className="form-control mb-4">
-          <label>Kategori Produk:</label>
-          <select
-            name="pd_ct_id"
-            value={formData.pd_ct_id}
-            onChange={handleChange}
-            className="input input-bordered"
-            required
-          >
-            <option value="">Pilih Kategori</option>
-            {categories.map((category) => (
-              <option key={category._id} value={category._id}>
-                {category.ct_name}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="form-control mb-4">
-          <label>Nama Produk:</label>
-          <input
-            type="text"
-            name="pd_name"
-            value={formData.pd_name}
-            onChange={handleChange}
-            className="input input-bordered"
-            required
-
-          />
-        </div>
-
-        <div className="form-control mb-4">
-          <label>Harga Produk:</label>
-          <input
-            type="number"
-            name="pd_price"
-            value={formData.pd_price}
-            onChange={handleChange}
-            className="input input-bordered"
-            required
-          />
-        </div>
-
-        <button type="submit" className="btn">Simpan Produk</button>
-      </form>
+      <CreateForm
+        formData={formData}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        fields={fields}
+      />
     </div>
   );
 };

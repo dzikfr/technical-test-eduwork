@@ -10,17 +10,36 @@ const CreateForm = ({ formData, handleChange, handleSubmit, fields }) => {
       {fields.map((field, index) => (
         <div className="form-control mb-4" key={index}>
           <label>{field.label}:</label>
-          <input
-            type={field.type}
-            name={field.name}
-            value={formData[field.name]}
-            onChange={handleChange}
-            className="input input-bordered"
-            required={field.required}
-          />
+          {field.type === "select" ? (
+            <select
+              name={field.name}
+              value={formData[field.name]}
+              onChange={handleChange}
+              className="input input-bordered"
+              required={field.required}
+            >
+              <option value="">Pilih Kategori</option>
+              {field.options.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          ) : (
+            <input
+              type={field.type}
+              name={field.name}
+              value={formData[field.name]}
+              onChange={handleChange}
+              className="input input-bordered"
+              required={field.required}
+            />
+          )}
         </div>
       ))}
-      <button type="submit" className="btn">Simpan</button>
+      <button type="submit" className="btn">
+        Simpan
+      </button>
     </form>
   );
 };
