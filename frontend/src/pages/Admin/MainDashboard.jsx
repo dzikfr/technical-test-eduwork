@@ -7,7 +7,7 @@ import ReadUser from "../../components/Admin/ReadUser";
 
 const Sidebar = ({ setActiveComponent }) => {
   return (
-    <div className="w-32 bg-gray-800 text-white h-screen">
+    <div className="w-32 h-screen border-r border-gray-700">
       <ul>
         <li
           onClick={() => setActiveComponent("product")}

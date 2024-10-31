@@ -4,7 +4,7 @@ import React from "react";
 const TableRead = ({ columns, data, onEdit, onDelete }) => {
   return (
     <div className="overflow-x-auto">
-      <table className="table table-zebra rounded-none border-black-200 bg-gray-800">
+      <table className="table table-zebra rounded-none">
         <thead className="text-center">
           <tr>
             {columns.map((col, index) => (
