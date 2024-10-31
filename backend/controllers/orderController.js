@@ -1,5 +1,6 @@
 const Order = require('../models/orderModel.js');
 const Product = require('../models/productModel.js');
+const User = require('../models/userModel.js');
 const fs = require('fs');
 const path = require('path');
 
@@ -26,42 +27,46 @@ const getOrder = async (req, res) => {
 
 const createOrder = async (req, res) => {
     try {
-        if(
-            !req.body.or_id ||
-            !req.body.or_pd_id ||
-            !req.body.or_us_id ||
-            !req.body.or_amount
-        ){
-            return res.status(400).send({message: 'required field missing'})
+        // Validasi field yang diperlukan
+        const { or_pd_id, or_us_id, or_amount } = req.body;
+        if (!or_pd_id || !or_us_id || !or_amount) {
+            return res.status(400).send({ message: 'Required fields are missing' });
         }
 
-        const newOrder ={
-            or_id : req.body.or_id,
-            or_pd_id : req.body.or_pd_id,
-            or_us_id : req.body.or_us_id,
-            or_amount : req.body.or_amount
-        }
+        // Membuat order baru
+        const newOrder = {
+            or_id: Math.floor(Math.random() * 100),
+            or_pd_id,
+            or_us_id,
+            or_amount
+        };
 
-        const order = (await Order.create(newOrder)).populate('or_pd_id').populate('or_us_id');
+        // Simpan order
+        let order = await Order.create(newOrder);
 
-        //WRITEFILE
-        const {or_id, or_pd_id, or_amount} = req.body;
+        // Mengambil order yang baru saja dibuat dengan populate
+        order = await Order.findById(order._id).populate('or_pd_id').populate('or_us_id');
+
+        // Menulis order ke file JSON
         const filePath = path.join(__dirname, '../assets/data/orders.json');
+        const orderData = { or_id: order._id, or_pd_id: order.or_pd_id, or_amount: order.or_amount };
 
         let ordersData = [];
         if (fs.existsSync(filePath)) {
             const data = fs.readFileSync(filePath, 'utf8');
             ordersData = JSON.parse(data);
         }
-        ordersData.push({ or_id, or_pd_id, or_amount });
+        ordersData.push(orderData);
         fs.writeFileSync(filePath, JSON.stringify(ordersData, null, 2), 'utf8');
-        //END WRITEFILE 
 
-        return res.status(200).send({message: "order created", data: order})
+        // Mengirim respons berhasil
+        return res.status(200).send({ message: "Order created", data: order });
     } catch (error) {
-        return res.status(500).send({message: error.message})
+        console.error("Error creating order:", error);
+        return res.status(500).send({ message: error.message });
     }
 };
+
 
 const deleteOrder = async (req, res) => {
     try {

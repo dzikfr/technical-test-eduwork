@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const userSchema = new mongoose.Schema({
     us_id:{
         type: Number,
-        AutoIncrement: true,
+        unique: true,
     },
 
     us_name:{
@@ -41,6 +42,8 @@ const userSchema = new mongoose.Schema({
         default: Date.now
     }
 })
+
+userSchema.plugin(AutoIncrement, {inc_field: 'us_id'});
 
 userSchema.pre('save', function(next){
     this.us_updated_at = Date.now();
