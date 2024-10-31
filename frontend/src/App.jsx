@@ -5,7 +5,7 @@ import './App.css';
 import LoginAdmin from './pages/Admin/LoginAdmin';
 import Admin from './pages/Admin/DashboardAdmin';
 import CreateProduct from './pages/Admin/CreateProduct';
-import CreateOrder from './pages/Admin/CreateOrder';
+import ReadOrder from './pages/Admin/ReadOrder';
 import CreateCategory from './pages/Admin/CreateCategory';
 import ReadProduct from './pages/Admin/ReadProduct';
 import EditProduct from './pages/Admin/EditProduct';
@@ -14,6 +14,7 @@ import EditCategory from './pages/Admin/EditCategory';
 import Shop from './pages/User/Shop';
 import UserLogin from './pages/User/UserLogin';
 import UserRegister from './pages/User/UserRegister';
+import ReadUser from './pages/Admin/ReadUser';
 
 const App = () => {
   return (
@@ -28,7 +29,8 @@ const App = () => {
         <Route path="/admin/product" element={<ReadProduct/>} />
         <Route path="/admin/category" element={<ReadCategory/>} />
         <Route path="/admin/product/create" element={<CreateProduct/>} />
-        <Route path="/admin/order/create" element={<CreateOrder/>} />
+        <Route path="/admin/order/" element={<ReadOrder/>} />
+        <Route path="/admin/user" element={<ReadUser/>} />
         <Route path="/admin/category/create" element={<CreateCategory/>} />
         <Route path="/admin/product/edit/:id" element={<EditProduct/>} />
         <Route path="/admin/category/edit/:id" element={<EditCategory/>} />

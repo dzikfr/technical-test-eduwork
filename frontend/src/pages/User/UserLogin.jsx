@@ -21,6 +21,7 @@ const UserLogin = () => {
 
       if (response.status === 200) {
         setMessage("Login berhasil");
+        localStorage.setItem("userData", JSON.stringify(response.data.data));
         navigate("/shop");
       } else {
         setMessage(response.data.message);
