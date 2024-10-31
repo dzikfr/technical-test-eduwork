@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import TableRead from "../../components/TableRead";
+import TableRead from "../TableRead";
 
 const ReadOrder = () => {
   const [orders, setOrders] = useState([]);

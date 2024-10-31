@@ -123,5 +123,20 @@
       "__v": 0
     },
     "or_amount": 1
+  },
+  {
+    "or_id": "67233e7a826dd5a13f768ca4",
+    "or_pd_id": {
+      "_id": "671a0728216b38c0eb48a7e5",
+      "pd_id": 2,
+      "pd_code": "pd2",
+      "pd_ct_id": "671a0459f4ae5568cb0b1af8",
+      "pd_name": "es jeruk",
+      "pd_price": 10000,
+      "pd_created_at": "2024-10-24T08:36:56.408Z",
+      "pd_updated_at": "2024-10-24T08:36:56.412Z",
+      "__v": 0
+    },
+    "or_amount": 1
   }
 ]
