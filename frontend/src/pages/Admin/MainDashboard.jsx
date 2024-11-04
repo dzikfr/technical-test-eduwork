@@ -49,7 +49,7 @@ const MainContent = ({ activeComponent }) => {
     case "user":
       return <ReadUser/>;
     default:
-      return <div className="p-4">Select a menu</div>;
+      return <ReadProduct/>;
   }
 };
 

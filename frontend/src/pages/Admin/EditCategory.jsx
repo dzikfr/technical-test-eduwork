@@ -35,7 +35,7 @@ const EditCategory = () => {
     axios
       .put(`http://localhost:3000/api/category/${id}`, updatedCategory)
       .then(() => {
-        navigate("/admin/category");
+        navigate("/admin");
       })
       .catch((error) => {
         console.log(error);

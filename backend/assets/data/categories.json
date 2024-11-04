@@ -43,5 +43,30 @@
     "ct_id": "5",
     "ct_code": "code5",
     "ct_name": "figure"
+  },
+  {
+    "ct_id": "1",
+    "ct_code": "code1",
+    "ct_name": "smartphone"
+  },
+  {
+    "ct_id": "2",
+    "ct_code": "code2",
+    "ct_name": "tablet"
+  },
+  {
+    "ct_id": "3",
+    "ct_code": "code3",
+    "ct_name": "smartwatch"
+  },
+  {
+    "ct_id": "4",
+    "ct_code": "code4",
+    "ct_name": "playstation"
+  },
+  {
+    "ct_id": "5",
+    "ct_code": "code5",
+    "ct_name": "console"
   }
 ]

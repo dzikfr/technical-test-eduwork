@@ -1,17 +1,10 @@
 [
   {
-    "pd_id": 1,
+    "pd_id": "1",
     "pd_code": "pd1",
-    "pd_ct_id": "6719c4a53110e37c3a070431",
-    "pd_name": "risol",
-    "pd_price": 3000
-  },
-  {
-    "pd_id": "2",
-    "pd_code": "pd2",
-    "pd_ct_id": "671a0459f4ae5568cb0b1af8",
-    "pd_name": "es jeruk",
-    "pd_price": "10000"
+    "pd_ct_id": "672943611d2f62f7573b1879",
+    "pd_name": "Samsung S24 Pro",
+    "pd_price": 22000000
   },
   {
     "pd_id": "3",
@@ -40,5 +33,26 @@
     "pd_ct_id": "672225eecd4316d97ede0248",
     "pd_name": "Figure amiya",
     "pd_price": "1300000"
+  },
+  {
+    "pd_id": "1",
+    "pd_code": "pd1",
+    "pd_ct_id": "672943611d2f62f7573b1879",
+    "pd_name": "Samsung S24 Pro",
+    "pd_price": "22000000"
+  },
+  {
+    "pd_id": "2",
+    "pd_code": "pd2",
+    "pd_ct_id": "67294371f1be0eeb829d73db",
+    "pd_name": "Samsung tab 10 210",
+    "pd_price": "21000000"
+  },
+  {
+    "pd_id": "3",
+    "pd_code": "pd3",
+    "pd_ct_id": "6729437d4933b39bd19a0a11",
+    "pd_name": "Redmi Smartwatch 3 Active",
+    "pd_price": "800000"
   }
 ]

@@ -14,12 +14,15 @@ const ReadOrder = () => {
     { header: "Nama User", accessor: (item) => item.or_us_id.us_name },
     { header: "Alamat", accessor: (item) => item.or_us_id.us_address },
     { header: "Jumlah", accessor: (item) => item.or_amount },
+    { header: "Tanggal Pesan", accessor: (item) => Date(item.or_created_at) },
   ];
 
   useEffect(() => {
     const getOrders = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_BACKEND_PORT}/api/order`);
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_PORT}/api/order`
+        );
         setOrders(response.data.data);
       } catch (err) {
         setError(err.message);
@@ -28,6 +31,30 @@ const ReadOrder = () => {
 
     getOrders();
   }, []);
+
+  const handleEdit = (id) => {
+    navigate(`/admin/order/edit/${id}`);
+  };
+
+  const handleDelete = async (id) => {
+    if (window.confirm("Ingin menghapus order?")) {
+      try {
+        const response = await axios.delete(
+          `${import.meta.env.VITE_BACKEND_PORT}/api/order/${id}`
+        );
+
+        if (response.status === 200) {
+          setOrders(orders.filter((order) => order._id !== id));
+          alert("Order telah dihapus.");
+        } else {
+          console.error("Gagal menghapus order");
+          alert("Gagal menghapus order");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
 
   if (error) {
     return <p>Error: {error}</p>;
@@ -39,6 +66,8 @@ const ReadOrder = () => {
       <TableRead
         columns={columns}
         data={orders}
+        onEdit={handleEdit}
+        onDelete={handleDelete}
       />
     </div>
   );
