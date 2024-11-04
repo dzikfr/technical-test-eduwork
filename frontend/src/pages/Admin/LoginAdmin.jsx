@@ -21,6 +21,7 @@ const LoginAdmin = () => {
 
       if (response.status === 200) {
         setMessage("Login berhasil");
+        localStorage.setItem('isAdminAuthenticated', 'true');
         navigate("/admin");
       } else {
         setMessage(response.data.message);
