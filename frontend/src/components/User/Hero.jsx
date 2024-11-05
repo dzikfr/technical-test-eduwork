@@ -1,7 +1,7 @@
 import React from "react";
-import ps5 from "../assets/ps5.png";
-import controller from "../assets/controller.png"
-import vr2 from "../assets/vr2.png"
+import ps5 from "../../../public/assets/ps5.png";
+import controller from "../../../public/assets/controller.png"
+import vr2 from "../../../public/assets/vr2.png"
 
 const Hero = () => {
   return (

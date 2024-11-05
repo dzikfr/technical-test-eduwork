@@ -1,5 +1,5 @@
 import React from "react";
-import SamsungS24 from "../assets/samsungs24.png";
+import SamsungS24 from "../../../public/assets/samsungs24.png";
 
 const PrimeProduct = () => {
   return (

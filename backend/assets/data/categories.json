@@ -1,50 +1,5 @@
 [
   {
-    "ct_id": 1,
-    "ct_code": "code1",
-    "ct_name": "makanan"
-  },
-  {
-    "ct_id": 2,
-    "ct_code": "code2",
-    "ct_name": "minuman"
-  },
-  {
-    "ct_id": "3",
-    "ct_code": "code3",
-    "ct_name": "Mainan"
-  },
-  {
-    "ct_id": "3",
-    "ct_code": "code3",
-    "ct_name": "mainan"
-  },
-  {
-    "ct_id": "3",
-    "ct_code": "code3",
-    "ct_name": "mainan"
-  },
-  {
-    "ct_id": "3",
-    "ct_code": "code3",
-    "ct_name": "mainan"
-  },
-  {
-    "ct_id": "3",
-    "ct_code": "code3",
-    "ct_name": "mainan"
-  },
-  {
-    "ct_id": "4",
-    "ct_code": "code4",
-    "ct_name": "alat masak"
-  },
-  {
-    "ct_id": "5",
-    "ct_code": "code5",
-    "ct_name": "figure"
-  },
-  {
     "ct_id": "1",
     "ct_code": "code1",
     "ct_name": "smartphone"

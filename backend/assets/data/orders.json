@@ -153,5 +153,20 @@
       "__v": 0
     },
     "or_amount": 1
+  },
+  {
+    "or_id": "6729b4887c1d5485f8b3146f",
+    "or_pd_id": {
+      "_id": "6729464fe51d820444591e1d",
+      "pd_id": 3,
+      "pd_code": "pd3",
+      "pd_ct_id": "6729437d4933b39bd19a0a11",
+      "pd_name": "Redmi Smartwatch 3 Active",
+      "pd_price": 800000,
+      "pd_created_at": "2024-11-04T22:10:23.184Z",
+      "pd_updated_at": "2024-11-04T22:10:23.188Z",
+      "__v": 0
+    },
+    "or_amount": 1
   }
 ]
