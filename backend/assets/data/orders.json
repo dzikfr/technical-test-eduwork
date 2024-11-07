@@ -168,5 +168,39 @@
       "__v": 0
     },
     "or_amount": 1
+  },
+  {
+    "or_id": "672c182564ad4b62a5034dfe",
+    "or_pd_id": {
+      "_id": "67294406c146b9714e011bd2",
+      "pd_id": 2,
+      "pd_code": "pd2",
+      "pd_ct_id": "67294371f1be0eeb829d73db",
+      "pd_name": "Samsung Tab S10",
+      "pd_price": 21000000,
+      "pd_created_at": "2024-11-04T22:00:38.403Z",
+      "pd_updated_at": "2024-11-04T22:00:38.407Z",
+      "__v": 0,
+      "pd_description": "",
+      "pd_image": "https://images.samsung.com/is/image/samsung/p6pim/id/sm-x820nzaaxid/gallery/id-galaxy-tab-s10-plus-sm-x820-sm-x820nzaaxid-thumb-543610469?$344_344_PNG$"
+    },
+    "or_amount": 1
+  },
+  {
+    "or_id": "672cc6fcb24e8f27d10e4d51",
+    "or_pd_id": {
+      "_id": "672943da8598716c824e4e7d",
+      "pd_id": 1,
+      "pd_code": "pd1",
+      "pd_ct_id": "672943611d2f62f7573b1879",
+      "pd_name": "Samsung S24 Pro",
+      "pd_price": 22000000,
+      "pd_created_at": "2024-11-04T21:59:54.163Z",
+      "pd_updated_at": "2024-11-04T21:59:54.167Z",
+      "__v": 0,
+      "pd_description": "Powerful Smartphone",
+      "pd_image": "https://completeselular.co.id/wp-content/uploads/2024/01/samsung-galaxy-s24-ultra-5g-sm-s928-0.jpg"
+    },
+    "or_amount": 1
   }
 ]

@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
-        <a className="btn btn-ghost text-xl">Ziifood</a>
+        <a className="btn btn-ghost text-xl">Ziishop</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ThemeController/>

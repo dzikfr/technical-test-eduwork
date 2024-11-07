@@ -8,6 +8,8 @@ const EditProduct = () => {
   const [category, setCategory] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
   const [categories, setCategories] = useState([]);
 
   const navigate = useNavigate();
@@ -23,6 +25,8 @@ const EditProduct = () => {
         setCategory(product.pd_ct_id._id);
         setName(product.pd_name);
         setPrice(product.pd_price);
+        setDescription(product.pd_description);
+        setImage(product.pd_image);
       })
       .catch((error) => {
         console.log(error);
@@ -46,6 +50,8 @@ const EditProduct = () => {
       pd_ct_id: category,
       pd_name: name,
       pd_price: price,
+      pd_description: description,
+      pd_image: image,
     };
 
     axios
@@ -119,6 +125,23 @@ const EditProduct = () => {
             onChange={(e) => setPrice(e.target.value)}
             className="input input-bordered"
             required
+          />
+        </div>
+        <div className="form-control mb-4">
+          <label>Deskripsi Produk:</label>
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="textarea textarea-bordered"
+          />
+        </div>
+        <div className="form-control mb-4">
+          <label>Foto Produk:</label>
+          <input
+            type="text"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            className="input input-bordered"
           />
         </div>
         <div className="form-control mb-4">

@@ -6,6 +6,7 @@ import TableRead from "../TableRead";
 const ReadProduct = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
   const columns = [
@@ -17,6 +18,8 @@ const ReadProduct = () => {
     },
     { header: "Name", accessor: (item) => item.pd_name },
     { header: "Price", accessor: (item) => item.pd_price },
+    { header: "Description", accessor: (item) => (item.pd_description ? item.pd_description : "No Set") },
+    { header: "Image", accessor: (item) => (item.pd_image ? "Set" : "No Set") },
   ];
 
   useEffect(() => {
@@ -62,15 +65,29 @@ const ReadProduct = () => {
     return <p>Error: {error}</p>;
   }
 
+  const filteredProducts = products.filter((product) => {
+    return (
+      product.pd_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.pd_code.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  });
+
   return (
     <div className="mx-10">
       <h1 className="text-3xl font-bold text-center mb-6 pt-3">Product</h1>
       <Link to={"/admin/product/create"} className="btn">
         Add +
       </Link>
+      <input
+        type="text"
+        placeholder="Search by name or code"
+        className="input input-bordered w-full mb-4"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
       <TableRead
         columns={columns}
-        data={products}
+        data={filteredProducts}
         onEdit={handleEdit}
         onDelete={handleDelete}
       />

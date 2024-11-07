@@ -55,6 +55,10 @@ const SingleProductcard = () => {
     setViewAll(!viewAll);
   };
 
+  const idrFormat = (value) => {
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  };
+
   return (
     <div>
       {/* Card Product */}
@@ -66,7 +70,7 @@ const SingleProductcard = () => {
           >
             <figure>
               <img
-                src={product.photo}
+                src={product.pd_image}
                 alt={product.pd_name}
                 className="object-cover w-full h-40"
               />
@@ -75,9 +79,9 @@ const SingleProductcard = () => {
             <div className="card-body rounded-none">
               <h2 className="card-title text-sm">{product.pd_name}</h2>
               <p className="text-xs">
-                {product.description || "Deskripsi tidak tersedia"}
+                {product.pd_description || "Deskripsi tidak tersedia"}
               </p>
-              <p className="text-md font-bold">{product.pd_price}</p>
+              <p className="text-md font-bold">Rp.{idrFormat(product.pd_price)}</p>
 
               <div className="card-actions justify-start">
                 <button

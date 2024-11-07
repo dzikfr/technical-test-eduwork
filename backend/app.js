@@ -8,6 +8,8 @@ const orderRoutes = require('./routes/orderRoute');
 const categoryRoutes = require('./routes/categoryRoute');
 const authRoutes = require('./routes/authRoute');
 const userAuthRoutes = require('./routes/userAuthRoute');
+const cloudinaryConfig = require('./config/cloudinary');
+const multer = require('multer');
 
 const app = express();
 
@@ -17,6 +19,10 @@ app.use(express.json());
 config();
 
 connectDb();
+cloudinaryConfig();
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
 app.use('/api', userRoutes);
 app.use('/api', productRoutes);

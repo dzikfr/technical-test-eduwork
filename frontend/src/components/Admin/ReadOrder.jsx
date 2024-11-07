@@ -6,6 +6,7 @@ import TableRead from "../TableRead";
 const ReadOrder = () => {
   const [orders, setOrders] = useState([]);
   const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
   const columns = [
@@ -60,12 +61,25 @@ const ReadOrder = () => {
     return <p>Error: {error}</p>;
   }
 
+  const filteredOrders = orders.filter(
+    (order) =>
+      order.or_id && order.or_id.toString().includes(searchTerm) ||
+      order.or_us_id.us_name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="mx-10">
       <h1 className="text-3xl font-bold text-center mb-6 pt-3">Order</h1>
+      <input
+        type="text"
+        placeholder="Search by id order or username"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="input input-bordered w-full mb-4"
+      />
       <TableRead
         columns={columns}
-        data={orders}
+        data={filteredOrders}
         onEdit={handleEdit}
         onDelete={handleDelete}
       />

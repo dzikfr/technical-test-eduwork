@@ -27,6 +27,14 @@ const productSchema = new mongoose.Schema({
         required: true,
     },
 
+    pd_description:{
+        type: String,
+    },
+
+    pd_image:{
+        type: String,
+    },
+
     pd_created_at:{
         type: Date,
         default: Date.now

@@ -4,7 +4,7 @@ const login = async (req,res) => {
     try {
         const { ad_username, ad_password } = req.body;
 
-        const admin = await Admin.findOne({ ad_username, ad_password });
+        const admin = await Admin.findOne({ ad_username });
 
         if (!admin) {
             return res.status(404).json({ message: 'Username tidak ditemukan' });

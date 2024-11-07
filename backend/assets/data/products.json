@@ -1,17 +1,11 @@
 [
   {
-    "pd_id": "1",
-    "pd_code": "pd1",
-    "pd_ct_id": "672943611d2f62f7573b1879",
-    "pd_name": "Samsung S24 Pro",
-    "pd_price": 22000000
-  },
-  {
-    "pd_id": "3",
+    "pd_id": 3,
     "pd_code": "pd3",
-    "pd_ct_id": "6719c4a53110e37c3a070431",
-    "pd_name": "oncom",
-    "pd_price": "15000"
+    "pd_ct_id": "6729437d4933b39bd19a0a11",
+    "pd_name": "Redmi Smartwatch 3 Active",
+    "pd_price": "8999999",
+    "pd_description": "test"
   },
   {
     "pd_id": "4",
@@ -54,5 +48,26 @@
     "pd_ct_id": "6729437d4933b39bd19a0a11",
     "pd_name": "Redmi Smartwatch 3 Active",
     "pd_price": "800000"
+  },
+  {
+    "pd_id": "4",
+    "pd_code": "pd4",
+    "pd_ct_id": "6729438eff0d96d62398bdc9",
+    "pd_name": "PlayStation 5",
+    "pd_price": "7000000"
+  },
+  {
+    "pd_id": "4",
+    "pd_code": "pd4",
+    "pd_ct_id": "6729438eff0d96d62398bdc9",
+    "pd_name": "PlayStation 5",
+    "pd_price": "7000000"
+  },
+  {
+    "pd_id": "5",
+    "pd_code": "pd5",
+    "pd_ct_id": "672943611d2f62f7573b1879",
+    "pd_name": "samsung s20",
+    "pd_price": "5000000"
   }
 ]

@@ -5,6 +5,7 @@ import TableRead from "../TableRead";
 
 const ReadUser = () => {
   const [users, setUsers] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -58,12 +59,24 @@ const ReadUser = () => {
     return <p>Error: {error}</p>;
   }
 
+  const filteredUsers = users.filter((user) =>
+    user.us_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    user.us_email.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="mx-10">
       <h1 className="text-3xl font-bold text-center mb-6 pt-3">User</h1>
+      <input
+        type="text"
+        placeholder="Search by username or email"
+        className="input input-bordered w-full mb-4"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
       <TableRead
         columns={columns}
-        data={users}
+        data={filteredUsers}
         onEdit={handleEdit}
         onDelete={handleDelete}
       />

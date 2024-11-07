@@ -20,6 +20,8 @@ const createProduct = async (req, res) =>{
         pd_ct_id : req.body.pd_ct_id,
         pd_name: req.body.pd_name,
         pd_price: req.body.pd_price,
+        pd_description: req.body.pd_description,
+        pd_image: req.body.pd_image
     }
 
     const products = await Product.create(newProduct)

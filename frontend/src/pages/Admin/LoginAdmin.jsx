@@ -4,7 +4,7 @@ import axios from "axios";
 import LoginForm from "../../components/LoginForm";
 
 const LoginAdmin = () => {
-  const [ad_username, setUsername] = useState("Admin");
+  const [ad_username, setUsername] = useState("");
   const [ad_password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const navigate = useNavigate();

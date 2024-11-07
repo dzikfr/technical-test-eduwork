@@ -9,6 +9,8 @@ const CreateProduct = () => {
     pd_ct_id: "",
     pd_name: "",
     pd_price: "",
+    pd_description: "",
+    pd_image: "",
   });
 
   const [categories, setCategories] = useState([]);
@@ -42,6 +44,8 @@ const CreateProduct = () => {
         pd_ct_id: "",
         pd_name: "",
         pd_price: "",
+        pd_description: "",
+        pd_image: "",
       });
     } catch (error) {
       console.error("Terjadi kesalahan saat mengirim data:", error);
@@ -76,6 +80,8 @@ const CreateProduct = () => {
     },
     { label: "Nama Produk", name: "pd_name", type: "text", required: true },
     { label: "Harga Produk", name: "pd_price", type: "number", required: true },
+    { label: "Deskripsi Produk", name: "pd_description", type: "text" },
+    { label: "Gambar Produk", name: "pd_image", type: "text" },
   ];
 
   return (
